@@ -11,12 +11,13 @@ CREATE TABLE client(
 CREATE TABLE project ( 
     id INT AUTO_INCREMENT PRIMARY KEY, 
     client_id INT,
-    start_date DATE NOT NULL,
-    finish_date DATE NOT NULL
+    start_date DATE ,
+    finish_date DATE NOT
 );
 CREATE TABLE project_worker(
-    project_id INT,
-    worker_id INT,
+    project_id INT NOT NULL,
+    worker_id INT NOT NULL,
+    PRIMARY KEY (project_id, worker_id),
     FOREIGN KEY(project_id) REFERENCES project(id),
     FOREIGN KEY(worker_id) REFERENCES worker(id)
 );
